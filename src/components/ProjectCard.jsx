@@ -61,9 +61,7 @@ export function VisualCard({ project, onSelect, onToast }) {
               className={`card-image ${isContain ? 'contain-fit' : ''}`}
             >
               <source src={videoSrc} />
-              <source src="/assets/dip_final_video_2.mp4" type="video/mp4" />
-              <source src="/assets/dip video final 2..mp4" type="video/mp4" />
-              <source src="/assets/0806.mov" type="video/quicktime" />
+              <source src="./assets/0806.mp4" type="video/mp4" />
             </video>
             <button 
               className="video-sound-btn"

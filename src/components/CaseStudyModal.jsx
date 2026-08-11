@@ -137,9 +137,7 @@ export default function CaseStudyModal({ project, onClose, onToast }) {
                     className={`case-hero-img ${isContain ? 'contain-fit' : ''}`}
                   >
                     <source src={caseStudy.heroVideo || (isVideo ? heroMedia : project.video)} />
-                    <source src="/assets/dip_final_video_2.mp4" type="video/mp4" />
-                    <source src="/assets/dip video final 2..mp4" type="video/mp4" />
-                    <source src="/assets/0806.mov" type="video/quicktime" />
+                    <source src="./assets/0806.mp4" type="video/mp4" />
                   </video>
                   <button 
                     className="video-sound-btn"
