@@ -166,36 +166,66 @@ export default function CaseStudyModal({ project, onClose, onToast }) {
             );
           })()}
 
-          {/* Watch Demo Video Link (right before Overview) */}
-          {(project.videoUrl || caseStudy.videoUrl) && (
-            <div style={{ marginTop: '24px', marginBottom: '16px' }}>
-              <a 
-                href={project.videoUrl || caseStudy.videoUrl} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="modal-action-btn"
-                style={{ 
-                  display: 'inline-flex', 
-                  alignItems: 'center', 
-                  gap: '8px', 
-                  padding: '12px 20px', 
-                  fontSize: '0.92rem', 
-                  fontWeight: 600,
-                  borderRadius: '12px',
-                  background: 'linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0.06))',
-                  border: '1px solid rgba(255, 255, 255, 0.15)',
-                  color: '#ffffff',
-                  textDecoration: 'none'
-                }}
-                onClick={() => {
-                  playButtonClickSound('default');
-                  if (onToast) onToast(`Opening demo video for ${project.title}`);
-                }}
-              >
-                <Video size={18} style={{ color: '#95a8c0' }} />
-                <span>Watch Demo Video (Google Drive)</span>
-                <ExternalLink size={14} style={{ opacity: 0.7 }} />
-              </a>
+          {/* Action Links (Video & Poster) - Placed before Overview */}
+          {(project.videoUrl || caseStudy.videoUrl || project.posterUrl || caseStudy.posterUrl) && (
+            <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', marginTop: '24px', marginBottom: '16px' }}>
+              {(project.videoUrl || caseStudy.videoUrl) && (
+                <a 
+                  href={project.videoUrl || caseStudy.videoUrl} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="modal-action-btn"
+                  style={{ 
+                    display: 'inline-flex', 
+                    alignItems: 'center', 
+                    gap: '8px', 
+                    padding: '12px 20px', 
+                    fontSize: '0.92rem', 
+                    fontWeight: 600,
+                    borderRadius: '12px',
+                    background: 'linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0.06))',
+                    border: '1px solid rgba(255, 255, 255, 0.15)',
+                    color: '#ffffff',
+                    textDecoration: 'none'
+                  }}
+                  onClick={() => {
+                    playButtonClickSound('default');
+                    if (onToast) onToast(`Opening demo video for ${project.title}`);
+                  }}
+                >
+                  <Video size={18} style={{ color: '#95a8c0' }} />
+                  <span>Watch Demo Video</span>
+                  <ExternalLink size={14} style={{ opacity: 0.7 }} />
+                </a>
+              )}
+              {(project.posterUrl || caseStudy.posterUrl) && (
+                <a 
+                  href={project.posterUrl || caseStudy.posterUrl} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="modal-action-btn"
+                  style={{ 
+                    display: 'inline-flex', 
+                    alignItems: 'center', 
+                    gap: '8px', 
+                    padding: '12px 20px', 
+                    fontSize: '0.92rem', 
+                    fontWeight: 600,
+                    borderRadius: '12px',
+                    background: 'rgba(255,255,255,0.08)',
+                    border: '1px solid rgba(255, 255, 255, 0.15)',
+                    color: '#ffffff',
+                    textDecoration: 'none'
+                  }}
+                  onClick={() => {
+                    playButtonClickSound('default');
+                    if (onToast) onToast(`Opening poster for ${project.title}`);
+                  }}
+                >
+                  <FileText size={18} style={{ color: '#95a8c0' }} />
+                  <span>View Poster</span>
+                </a>
+              )}
             </div>
           )}
 
@@ -274,44 +304,6 @@ export default function CaseStudyModal({ project, onClose, onToast }) {
               ))}
             </ul>
           </div>
-
-          {/* Action Links (Video & Poster) */}
-          {(project.videoUrl || caseStudy.videoUrl || project.posterUrl || caseStudy.posterUrl) && (
-            <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', marginTop: '36px', paddingTop: '20px', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
-              {(project.videoUrl || caseStudy.videoUrl) && (
-                <a 
-                  href={project.videoUrl || caseStudy.videoUrl} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="modal-action-btn"
-                  onClick={() => {
-                    playButtonClickSound('default');
-                    if (onToast) onToast(`Opening demo video for ${project.title}`);
-                  }}
-                >
-                  <Video size={16} />
-                  Watch Demo Video
-                  <ExternalLink size={13} style={{ opacity: 0.7, marginLeft: '4px' }} />
-                </a>
-              )}
-              {(project.posterUrl || caseStudy.posterUrl) && (
-                <a 
-                  href={project.posterUrl || caseStudy.posterUrl} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="modal-action-btn"
-                  style={{ background: 'rgba(255,255,255,0.08)', color: '#ffffff' }}
-                  onClick={() => {
-                    playButtonClickSound('default');
-                    if (onToast) onToast(`Opening poster for ${project.title}`);
-                  }}
-                >
-                  <FileText size={16} />
-                  View Poster
-                </a>
-              )}
-            </div>
-          )}
         </div>
       </div>
     </div>
