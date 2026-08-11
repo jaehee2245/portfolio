@@ -53,15 +53,22 @@ export function VisualCard({ project, onSelect, onToast }) {
           <>
             <video 
               ref={videoRef}
+              src={videoSrc}
               autoPlay 
               loop 
               muted={isAudioMuted}
               playsInline 
               key={videoSrc}
               className={`card-image ${isContain ? 'contain-fit' : ''}`}
+              onClick={(e) => {
+                e.stopPropagation();
+                if (videoRef.current) {
+                  if (videoRef.current.paused) videoRef.current.play();
+                  else videoRef.current.pause();
+                }
+              }}
             >
-              <source src={videoSrc} />
-              <source src="./assets/0806.mp4" type="video/mp4" />
+              <source src={videoSrc} type="video/mp4" />
             </video>
             <button 
               className="video-sound-btn"

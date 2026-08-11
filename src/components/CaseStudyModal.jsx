@@ -129,15 +129,21 @@ export default function CaseStudyModal({ project, onClose, onToast }) {
                 <div className="video-hero-wrapper">
                   <video 
                     ref={heroVideoRef}
+                    src={caseStudy.heroVideo || (isVideo ? heroMedia : project.video)}
                     autoPlay 
                     loop 
                     muted={isHeroAudioMuted} 
                     playsInline 
                     key={project.id}
                     className={`case-hero-img ${isContain ? 'contain-fit' : ''}`}
+                    onClick={() => {
+                      if (heroVideoRef.current) {
+                        if (heroVideoRef.current.paused) heroVideoRef.current.play();
+                        else heroVideoRef.current.pause();
+                      }
+                    }}
                   >
-                    <source src={caseStudy.heroVideo || (isVideo ? heroMedia : project.video)} />
-                    <source src="./assets/0806.mp4" type="video/mp4" />
+                    <source src={caseStudy.heroVideo || (isVideo ? heroMedia : project.video)} type="video/mp4" />
                   </video>
                   <button 
                     className="video-sound-btn"
@@ -159,6 +165,39 @@ export default function CaseStudyModal({ project, onClose, onToast }) {
               />
             );
           })()}
+
+          {/* Watch Demo Video Link (right before Overview) */}
+          {(project.videoUrl || caseStudy.videoUrl) && (
+            <div style={{ marginTop: '24px', marginBottom: '16px' }}>
+              <a 
+                href={project.videoUrl || caseStudy.videoUrl} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="modal-action-btn"
+                style={{ 
+                  display: 'inline-flex', 
+                  alignItems: 'center', 
+                  gap: '8px', 
+                  padding: '12px 20px', 
+                  fontSize: '0.92rem', 
+                  fontWeight: 600,
+                  borderRadius: '12px',
+                  background: 'linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0.06))',
+                  border: '1px solid rgba(255, 255, 255, 0.15)',
+                  color: '#ffffff',
+                  textDecoration: 'none'
+                }}
+                onClick={() => {
+                  playButtonClickSound('default');
+                  if (onToast) onToast(`Opening demo video for ${project.title}`);
+                }}
+              >
+                <Video size={18} style={{ color: '#95a8c0' }} />
+                <span>Watch Demo Video (Google Drive)</span>
+                <ExternalLink size={14} style={{ opacity: 0.7 }} />
+              </a>
+            </div>
+          )}
 
           {/* Overview */}
           <div className="case-section">
