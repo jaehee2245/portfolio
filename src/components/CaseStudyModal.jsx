@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { X, Cpu, Layers, Sparkles, CheckCircle2, Volume2, VolumeX, Layout, FileText } from 'lucide-react';
+import { X, Cpu, Layers, Sparkles, CheckCircle2, Volume2, VolumeX, Layout, FileText, Video, ExternalLink } from 'lucide-react';
 import { playButtonClickSound } from '../utils/sound';
 
 function renderFormattedText(text) {
@@ -238,22 +238,41 @@ export default function CaseStudyModal({ project, onClose, onToast }) {
             </ul>
           </div>
 
-          {/* Poster Link Button */}
-          {(project.posterUrl || caseStudy.posterUrl) && (
+          {/* Action Links (Video & Poster) */}
+          {(project.videoUrl || caseStudy.videoUrl || project.posterUrl || caseStudy.posterUrl) && (
             <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', marginTop: '36px', paddingTop: '20px', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
-              <a 
-                href={project.posterUrl || caseStudy.posterUrl} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="modal-action-btn"
-                onClick={() => {
-                  playButtonClickSound('default');
-                  if (onToast) onToast(`Opening poster for ${project.title}`);
-                }}
-              >
-                <FileText size={16} />
-                View Poster
-              </a>
+              {(project.videoUrl || caseStudy.videoUrl) && (
+                <a 
+                  href={project.videoUrl || caseStudy.videoUrl} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="modal-action-btn"
+                  onClick={() => {
+                    playButtonClickSound('default');
+                    if (onToast) onToast(`Opening demo video for ${project.title}`);
+                  }}
+                >
+                  <Video size={16} />
+                  Watch Demo Video
+                  <ExternalLink size={13} style={{ opacity: 0.7, marginLeft: '4px' }} />
+                </a>
+              )}
+              {(project.posterUrl || caseStudy.posterUrl) && (
+                <a 
+                  href={project.posterUrl || caseStudy.posterUrl} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="modal-action-btn"
+                  style={{ background: 'rgba(255,255,255,0.08)', color: '#ffffff' }}
+                  onClick={() => {
+                    playButtonClickSound('default');
+                    if (onToast) onToast(`Opening poster for ${project.title}`);
+                  }}
+                >
+                  <FileText size={16} />
+                  View Poster
+                </a>
+              )}
             </div>
           )}
         </div>

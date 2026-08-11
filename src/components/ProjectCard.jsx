@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { ArrowUpRight, Volume2, VolumeX } from 'lucide-react';
+import { ArrowUpRight, Volume2, VolumeX, Video } from 'lucide-react';
 import { playButtonClickSound } from '../utils/sound';
 
 export function VisualCard({ project, onSelect, onToast }) {
@@ -76,12 +76,32 @@ export function VisualCard({ project, onSelect, onToast }) {
             </button>
           </>
         ) : (
-          <img 
-            src={project.image} 
-            alt={`${project.title} Preview Showcase`}
-            className={`card-image ${isContain ? 'contain-fit' : ''}`}
-            loading="lazy"
-          />
+          <>
+            <img 
+              src={project.image} 
+              alt={`${project.title} Preview Showcase`}
+              className={`card-image ${isContain ? 'contain-fit' : ''}`}
+              loading="lazy"
+            />
+            {project.videoUrl && (
+              <a 
+                href={project.videoUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="video-sound-btn"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  playButtonClickSound('toggle');
+                  if (onToast) onToast(`Opening demo video for ${project.title}`);
+                }}
+                style={{ textDecoration: 'none' }}
+                title="Watch Demo Video on Google Drive"
+              >
+                <Video size={15} />
+                <span>Watch Video</span>
+              </a>
+            )}
+          </>
         )}
       </div>
     </div>
