@@ -21,8 +21,7 @@ export const projectsData = [
     tags: ['Deployed Web App', 'Price Analytics', 'Interactive UI', 'SEA Travel', 'Vanilla JS & CSS'],
     caseStudy: {
       tagline: 'Did you get the tourist price? Giving exchange students and travellers instant local price sense across Southeast Asia.',
-      heroImage: getAssetUrl('assets/overpaid_hero.png'),
-      problemImage: getAssetUrl('assets/overpaid_how_it_works.png'),
+      heroImage: getAssetUrl('assets/overpaid_how_it_works.png'),
       overview: "When my exchange friend paid $20 for a bowl of noodles and thought it was normal Singapore pricing, I realised: <u>local price sense takes years to build</u>.\n\nLocals instinctively know what’s cheap, fair, or tourist-priced. Travellers don’t have that baseline — making it easy to overpay without knowing it.\n\nSo I built <u>Overpaid</u>, a lightweight price detector that gives travellers instant local price sense from Day 1.",
       problem: "Beyond currency conversion, prices vary by location, season, and tourist demand. <u>Overpaid’s Verdict Engine</u> compares spending against local benchmarks, adjusts for tourist zones, and turns the result into an intuitive visual verdict.\n\nIt also surfaces price trends across Singapore, Thailand, Vietnam, Indonesia, Malaysia, and the Philippines.",
       architecture: [

@@ -166,9 +166,18 @@ export default function CaseStudyModal({ project, onClose, onToast }) {
             );
           })()}
 
-          {/* Action Links (Video & Poster) - Placed before Overview */}
+          {/* Overview */}
+          <div className="case-section">
+            <h3 className="case-section-title">
+              <Sparkles size={18} style={{ color: '#95a8c0' }} />
+              Overview & Context
+            </h3>
+            {renderFormattedText(caseStudy.overview)}
+          </div>
+
+          {/* Action Links (CTA Try it now, Video, Poster) - Placed after Overview */}
           {(project.liveUrl || caseStudy.liveUrl || project.videoUrl || caseStudy.videoUrl || project.posterUrl || caseStudy.posterUrl) && (
-            <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', marginTop: '24px', marginBottom: '16px' }}>
+            <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', marginTop: '16px', marginBottom: '32px' }}>
               {(project.liveUrl || caseStudy.liveUrl) && (
                 <a 
                   href={project.liveUrl || caseStudy.liveUrl} 
@@ -257,15 +266,6 @@ export default function CaseStudyModal({ project, onClose, onToast }) {
               )}
             </div>
           )}
-
-          {/* Overview */}
-          <div className="case-section">
-            <h3 className="case-section-title">
-              <Sparkles size={18} style={{ color: '#95a8c0' }} />
-              Overview & Context
-            </h3>
-            {renderFormattedText(caseStudy.overview)}
-          </div>
 
           {/* How It Works Visual */}
           {caseStudy.problemImage && (
