@@ -167,8 +167,37 @@ export default function CaseStudyModal({ project, onClose, onToast }) {
           })()}
 
           {/* Action Links (Video & Poster) - Placed before Overview */}
-          {(project.videoUrl || caseStudy.videoUrl || project.posterUrl || caseStudy.posterUrl) && (
+          {(project.liveUrl || caseStudy.liveUrl || project.videoUrl || caseStudy.videoUrl || project.posterUrl || caseStudy.posterUrl) && (
             <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', marginTop: '24px', marginBottom: '16px' }}>
+              {(project.liveUrl || caseStudy.liveUrl) && (
+                <a 
+                  href={project.liveUrl || caseStudy.liveUrl} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="modal-action-btn"
+                  style={{ 
+                    display: 'inline-flex', 
+                    alignItems: 'center', 
+                    gap: '8px', 
+                    padding: '12px 20px', 
+                    fontSize: '0.92rem', 
+                    fontWeight: 600,
+                    borderRadius: '12px',
+                    background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.25), rgba(16, 185, 129, 0.15))',
+                    border: '1px solid rgba(52, 211, 153, 0.4)',
+                    color: '#6ee7b7',
+                    textDecoration: 'none',
+                    boxShadow: '0 4px 14px rgba(16, 185, 129, 0.2)'
+                  }}
+                  onClick={() => {
+                    playButtonClickSound('default');
+                    if (onToast) onToast(`Launching live web app for ${project.title} 🚀`);
+                  }}
+                >
+                  <ExternalLink size={18} style={{ color: '#34d399' }} />
+                  <span>Try it now 🚀</span>
+                </a>
+              )}
               {(project.videoUrl || caseStudy.videoUrl) && (
                 <a 
                   href={project.videoUrl || caseStudy.videoUrl} 

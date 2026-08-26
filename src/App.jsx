@@ -17,9 +17,6 @@ export default function App() {
     }, 3500);
   };
 
-  const project1 = projectsData[0]; // Biscuit Camera
-  const project2 = projectsData[1]; // Make Garden
-
   return (
     <div className="app-container">
       {/* Sidebar Navigation */}
@@ -31,27 +28,38 @@ export default function App() {
       {/* Main Portfolio Grid */}
       <main className="main-content">
         <div className="projects-grid">
-          {/* Row 1: Project 1 (Biscuit Camera) */}
-          <VisualCard 
-            project={project1} 
-            onSelect={(proj) => setSelectedProject(proj)} 
-            onToast={triggerToast}
-          />
-          <TextCard 
-            project={project1} 
-            onSelect={(proj) => setSelectedProject(proj)} 
-          />
-
-          {/* Row 2: Project 2 (Make Garden) */}
-          <TextCard 
-            project={project2} 
-            onSelect={(proj) => setSelectedProject(proj)} 
-          />
-          <VisualCard 
-            project={project2} 
-            onSelect={(proj) => setSelectedProject(proj)} 
-            onToast={triggerToast}
-          />
+          {projectsData.map((project, idx) => {
+            const isEven = idx % 2 === 0;
+            return (
+              <React.Fragment key={project.id || idx}>
+                {isEven ? (
+                  <>
+                    <VisualCard 
+                      project={project} 
+                      onSelect={(proj) => setSelectedProject(proj)} 
+                      onToast={triggerToast}
+                    />
+                    <TextCard 
+                      project={project} 
+                      onSelect={(proj) => setSelectedProject(proj)} 
+                    />
+                  </>
+                ) : (
+                  <>
+                    <TextCard 
+                      project={project} 
+                      onSelect={(proj) => setSelectedProject(proj)} 
+                    />
+                    <VisualCard 
+                      project={project} 
+                      onSelect={(proj) => setSelectedProject(proj)} 
+                      onToast={triggerToast}
+                    />
+                  </>
+                )}
+              </React.Fragment>
+            );
+          })}
         </div>
       </main>
 

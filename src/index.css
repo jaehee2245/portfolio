@@ -205,6 +205,11 @@ a {
   background-color: #92a4b8;
 }
 
+.card-visual.emerald-bg {
+  background-color: #064e3b;
+  background: linear-gradient(135deg, #064e3b 0%, #022c22 100%);
+}
+
 .card-image-wrapper {
   width: 100%;
   height: 100%;
