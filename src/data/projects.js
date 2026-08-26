@@ -9,6 +9,45 @@ export const getAssetUrl = (path) => {
 
 export const projectsData = [
   {
+    id: 'overpaid-sea',
+    title: 'Overpaid',
+    tag: 'Deployed project · Tourist Price Detector & Price Sense Web App',
+    category: 'Deployed project | Web Application × Price Data Analytics',
+    description: 'Instant price sense across Southeast Asia for exchange students and travellers. Know what locals pay before opening your wallet.',
+    image: getAssetUrl('assets/overpaid_hero.png'),
+    objectFit: 'cover',
+    visualStyle: 'emerald-bg',
+    liveUrl: 'https://jaehee2245.github.io/overpaid/',
+    tags: ['Deployed Web App', 'Price Analytics', 'Interactive UI', 'SEA Travel', 'Vanilla JS & CSS'],
+    caseStudy: {
+      tagline: 'Did you get the tourist price? Giving exchange students and travellers instant local price sense across Southeast Asia.',
+      heroImage: getAssetUrl('assets/overpaid_hero.png'),
+      problemImage: getAssetUrl('assets/overpaid_how_it_works.png'),
+      overview: "When my exchange friend bought a simple bowl of noodles for $20 and genuinely thought that was just standard Singapore pricing, it hit me: <u>foreigners and exchange students don't have price sense</u>.\n\nLocal price intuition takes years of living in a region to build. You learn what a night market pad thai costs in Bangkok vs a mall food court, or what a hawker chicken rice costs in Singapore vs a tourist spot in Marina Bay.\n\nWithout that mental baseline, newcomers get systematically overcharged without ever realizing it.\n\nThat's why I built <u>Overpaid</u>—a lightweight, instant tourist-price detector that gives travellers years of local price sense on Day 1.",
+      problem: "The problem isn't just exchange rates—it's contextual pricing across local vs tourist zones, seasonal fluctuations, and lack of real-time benchmarks.\n\nThe engineering challenge was to design a responsive Verdict Engine that:\n• Compares user spending against authentic local floor/ceiling benchmarks\n• Shifts evaluation thresholds dynamically when users are in tourist zones rather than penalising them unfairly\n• Visualises spend variance using dynamic meter geometry and custom receipts\n• Provides interactive price trends across Southeast Asian countries (Singapore, Thailand, Vietnam, Indonesia, Malaysia, Philippines)",
+      architecture: [
+        { title: 'Verdict Engine Logic', desc: 'Paid Amount vs Local Baseline → Zone Allowance Threshold Adjuster → Dynamic Grade (STEAL / FAIR / A BIT MUCH / OVERPAID / BRUTAL)' },
+        { title: 'Meter Geometry Renderer', desc: 'Calculates dynamic percentage spans comparing local price spread (lo-hi) against tourist zone spread (tLo-tHi).' },
+        { title: 'Regional FX & Price Data Schema', desc: 'Centralised dataset tracking item baselines, unit currencies (SGD, THB, VND, IDR, MYR, PHP), and seasonal variations.' },
+        { title: 'Interactive Receipt Component', desc: 'Generates detailed itemised breakdown cards showing precise savings or overpayment percentage.' }
+      ],
+      techStack: [
+        { name: 'JavaScript (ES6+)', role: 'Core verdict algorithm, state management & DOM render pipeline' },
+        { name: 'Custom CSS Design System', role: 'Editorial typographic hierarchy, grain overlays & dark aesthetic' },
+        { name: 'GitHub Pages', role: 'Production deployment pipeline for fast global CDN access' },
+        { name: 'SEA Price Matrix', role: 'Curated price database covering food, transport & everyday goods' }
+      ],
+      highlights: [
+        'Built and deployed a live price checker web app for Southeast Asia',
+        'Implemented contextual tourist-zone allowance logic in verdict evaluation',
+        'Created dynamic visual receipts with SVG/CSS meter scale geometry',
+        'Designed multi-country price tracking (Singapore, Thailand, Vietnam, Indonesia, Malaysia, Philippines)',
+        'Delivered instant UX designed specifically for exchange students and travellers',
+        'Deployed live at https://jaehee2245.github.io/overpaid/'
+      ]
+    }
+  },
+  {
     id: 'gemini-google-maps',
     title: 'Gemini × Google Maps',
     tag: 'Concept project · AI × Product Design',
@@ -86,45 +125,6 @@ export const projectsData = [
         'Built the application using React Native for a cross-platform experience',
         'Explored how a small, focused hall-level solution could potentially scale into a wider NTU ecosystem'
       ],
-    }
-  },
-  {
-    id: 'overpaid-sea',
-    title: 'Overpaid',
-    tag: 'Deployed project · Tourist Price Detector & Price Sense Web App',
-    category: 'Deployed project | Web Application × Price Data Analytics',
-    description: 'Instant price sense across Southeast Asia for exchange students and travellers. Know what locals pay before opening your wallet.',
-    image: getAssetUrl('assets/overpaid_hero.png'),
-    objectFit: 'cover',
-    visualStyle: 'emerald-bg',
-    liveUrl: 'https://jaehee2245.github.io/overpaid/',
-    tags: ['Deployed Web App', 'Price Analytics', 'Interactive UI', 'SEA Travel', 'Vanilla JS & CSS'],
-    caseStudy: {
-      tagline: 'Did you get the tourist price? Giving exchange students and travellers instant local price sense across Southeast Asia.',
-      heroImage: getAssetUrl('assets/overpaid_hero.png'),
-      problemImage: getAssetUrl('assets/overpaid_how_it_works.png'),
-      overview: "When my exchange friend bought a simple bowl of noodles for $20 and genuinely thought that was just standard Singapore pricing, it hit me: <u>foreigners and exchange students don't have price sense</u>.\n\nLocal price intuition takes years of living in a region to build. You learn what a night market pad thai costs in Bangkok vs a mall food court, or what a hawker chicken rice costs in Singapore vs a tourist spot in Marina Bay.\n\nWithout that mental baseline, newcomers get systematically overcharged without ever realizing it.\n\nThat's why I built <u>Overpaid</u>—a lightweight, instant tourist-price detector that gives travellers years of local price sense on Day 1.",
-      problem: "The problem isn't just exchange rates—it's contextual pricing across local vs tourist zones, seasonal fluctuations, and lack of real-time benchmarks.\n\nThe engineering challenge was to design a responsive Verdict Engine that:\n• Compares user spending against authentic local floor/ceiling benchmarks\n• Shifts evaluation thresholds dynamically when users are in tourist zones rather than penalising them unfairly\n• Visualises spend variance using dynamic meter geometry and custom receipts\n• Provides interactive price trends across Southeast Asian countries (Singapore, Thailand, Vietnam, Indonesia, Malaysia, Philippines)",
-      architecture: [
-        { title: 'Verdict Engine Logic', desc: 'Paid Amount vs Local Baseline → Zone Allowance Threshold Adjuster → Dynamic Grade (STEAL / FAIR / A BIT MUCH / OVERPAID / BRUTAL)' },
-        { title: 'Meter Geometry Renderer', desc: 'Calculates dynamic percentage spans comparing local price spread (lo-hi) against tourist zone spread (tLo-tHi).' },
-        { title: 'Regional FX & Price Data Schema', desc: 'Centralised dataset tracking item baselines, unit currencies (SGD, THB, VND, IDR, MYR, PHP), and seasonal variations.' },
-        { title: 'Interactive Receipt Component', desc: 'Generates detailed itemised breakdown cards showing precise savings or overpayment percentage.' }
-      ],
-      techStack: [
-        { name: 'JavaScript (ES6+)', role: 'Core verdict algorithm, state management & DOM render pipeline' },
-        { name: 'Custom CSS Design System', role: 'Editorial typographic hierarchy, grain overlays & dark aesthetic' },
-        { name: 'GitHub Pages', role: 'Production deployment pipeline for fast global CDN access' },
-        { name: 'SEA Price Matrix', role: 'Curated price database covering food, transport & everyday goods' }
-      ],
-      highlights: [
-        'Built and deployed a live price checker web app for Southeast Asia',
-        'Implemented contextual tourist-zone allowance logic in verdict evaluation',
-        'Created dynamic visual receipts with SVG/CSS meter scale geometry',
-        'Designed multi-country price tracking (Singapore, Thailand, Vietnam, Indonesia, Malaysia, Philippines)',
-        'Delivered instant UX designed specifically for exchange students and travellers',
-        'Deployed live at https://jaehee2245.github.io/overpaid/'
-      ]
     }
   }
 ];
