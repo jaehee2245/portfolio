@@ -267,6 +267,25 @@ export default function CaseStudyModal({ project, onClose, onToast }) {
             {renderFormattedText(caseStudy.overview)}
           </div>
 
+          {/* How It Works Visual */}
+          {caseStudy.problemImage && (
+            <div style={{ margin: '24px 0 32px', borderRadius: '16px', overflow: 'hidden', border: '1px solid rgba(255, 255, 255, 0.08)', background: '#09090b', padding: '12px' }}>
+              <img 
+                src={caseStudy.problemImage} 
+                alt={`${project.title} Visual Breakdown`} 
+                onError={(e) => {
+                  if (!e.target.dataset.retried) {
+                    e.target.dataset.retried = '1';
+                    if (e.target.src.endsWith('.png')) e.target.src = e.target.src.replace('.png', '.PNG');
+                    else if (e.target.src.endsWith('.PNG')) e.target.src = e.target.src.replace('.PNG', '.jpg');
+                    else if (e.target.src.endsWith('.jpg')) e.target.src = e.target.src.replace('.jpg', '.jpeg');
+                  }
+                }}
+                style={{ width: '100%', maxHeight: '480px', objectFit: 'contain', display: 'block', borderRadius: '12px' }} 
+              />
+            </div>
+          )}
+
           {/* Problem & Motivation */}
           <div className="case-section">
             <h3 className="case-section-title">
@@ -274,23 +293,6 @@ export default function CaseStudyModal({ project, onClose, onToast }) {
               Problem & Engineering Challenge
             </h3>
             {renderFormattedText(caseStudy.problem)}
-            {caseStudy.problemImage && (
-              <div style={{ marginTop: '20px', borderRadius: '16px', overflow: 'hidden', border: '1px solid rgba(255, 255, 255, 0.08)', background: '#09090b', padding: '12px' }}>
-                <img 
-                  src={caseStudy.problemImage} 
-                  alt={`${project.title} Problem & Solution Visual`} 
-                  onError={(e) => {
-                    if (!e.target.dataset.retried) {
-                      e.target.dataset.retried = '1';
-                      if (e.target.src.endsWith('.png')) e.target.src = e.target.src.replace('.png', '.PNG');
-                      else if (e.target.src.endsWith('.PNG')) e.target.src = e.target.src.replace('.PNG', '.jpg');
-                      else if (e.target.src.endsWith('.jpg')) e.target.src = e.target.src.replace('.jpg', '.jpeg');
-                    }
-                  }}
-                  style={{ width: '100%', maxHeight: '480px', objectFit: 'contain', display: 'block', borderRadius: '12px' }} 
-                />
-              </div>
-            )}
           </div>
 
           {/* Architecture */}
