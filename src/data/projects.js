@@ -16,7 +16,7 @@ export const projectsData = [
     description: 'Instant price sense across Southeast Asia for exchange students and travellers. Know what locals pay before opening your wallet.',
     image: getAssetUrl('assets/overpaid_hero.png'),
     objectFit: 'contain',
-    visualStyle: 'emerald-bg',
+    visualStyle: 'white-bg',
     liveUrl: 'https://jaehee2245.github.io/overpaid/',
     tags: ['Deployed Web App', 'Price Analytics', 'Interactive UI', 'SEA Travel', 'Vanilla JS & CSS'],
     caseStudy: {

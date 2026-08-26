@@ -161,7 +161,7 @@ export default function CaseStudyModal({ project, onClose, onToast }) {
               <img 
                 src={heroMedia} 
                 alt={`${project.title} Case Study Visual`} 
-                className={`case-hero-img ${isContain ? 'contain-fit' : ''}`}
+                className={`case-hero-img ${isContain ? 'contain-fit' : ''} ${project.visualStyle || ''}`}
               />
             );
           })()}
